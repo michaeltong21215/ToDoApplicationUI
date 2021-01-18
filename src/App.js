@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 import Login from './components/Login/Login';
-
+import Signup from './components/Signup/Signup';
 import BackgroundImage from './imgs/background.jpg';
 
 const styles = (theme) => ({
@@ -19,13 +19,34 @@ const styles = (theme) => ({
 });
 
 class App extends Component {
+  getRoutes = () => {
+    const routes = [
+      {
+        path: '/',
+        component: Login,
+        isExact: true,
+      },
+      {
+        path: '/signup',
+        component: Signup,
+      },
+    ];
+    return routes;
+  };
+
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.main}>
         <main>
           <Switch>
-            <Route path='/' component={Login} exact />
+            {this.getRoutes().map((route) => {
+              return route.isExact ? (
+                <Route path={route.path} component={route.component} exact />
+              ) : (
+                <Route path={route.path} component={route.component} />
+              );
+            })}
           </Switch>
         </main>
       </div>

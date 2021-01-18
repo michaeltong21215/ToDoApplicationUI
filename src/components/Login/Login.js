@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppLogo from '../common/AppLogo';
 import Textfield from '../common/Textfield';
@@ -41,6 +42,11 @@ const styles = (theme) => ({
   },
   login: {
     paddingTop: 20,
+  },
+  signUp: {
+    paddingTop: 20,
+    fontSize: 12,
+    paddingLeft: 40,
   },
 });
 
@@ -91,6 +97,9 @@ const Login = ({ classes }) => {
           {renderRememberCheckbox()}
           <div className={classes.login}>
             <Button label='Login' />
+          </div>
+          <div className={classes.signUp}>
+            Don't have an Account? <Link to='/signup'>Sign up</Link>
           </div>
         </div>
       </div>
