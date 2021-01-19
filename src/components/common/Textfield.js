@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { NOOP } from '../utils/utils';
 
@@ -45,7 +45,10 @@ const TextField = ({
   classes,
   isPassword,
 }) => {
-  const eye = <FontAwesomeIcon icon={faEye} />;
+  const showPwdIcon = <FontAwesomeIcon icon={faEye} />;
+  const hidePwdIcon = <FontAwesomeIcon icon={faEyeSlash} />;
+
+  const [showPwd, setShowPwd] = useState(false);
 
   const setValue = (e) => {
     onChange(e.target.value);
@@ -60,7 +63,7 @@ const TextField = ({
         className={classes.inputField}
         type={isPassword ? 'password' : 'text'}
       />
-      {isPassword && <i className={classes.pwdAdornment}>{eye}</i>}
+      {isPassword && <i className={classes.pwdAdornment}>{showPwdIcon}</i>}
     </div>
   );
 };
