@@ -93,8 +93,8 @@ const Signup = ({ classes }) => {
       <div className={classes.panel}>
         <div className={classes.form}>
           <div className={classes.header}>Sign Up</div>
-          {formFields.map((field) => (
-            <div className={classes.textfield}>
+          {formFields.map((field, idx) => (
+            <div className={classes.textfield} key={idx}>
               <Textfield
                 value={field.value}
                 onChange={field.onChange}
@@ -107,7 +107,7 @@ const Signup = ({ classes }) => {
             <Button label='Register' />
           </div>
           <div className={classes.signIn}>
-            Already have an Account? <Link to='/login'>Sign in</Link>
+            Already have an Account? <Link to='/'>Sign in</Link>
           </div>
         </div>
       </div>

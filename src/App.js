@@ -40,11 +40,20 @@ class App extends Component {
       <div className={classes.main}>
         <main>
           <Switch>
-            {this.getRoutes().map((route) => {
+            {this.getRoutes().map((route, idx) => {
               return route.isExact ? (
-                <Route path={route.path} component={route.component} exact />
+                <Route
+                  key={idx}
+                  path={route.path}
+                  component={route.component}
+                  exact
+                />
               ) : (
-                <Route path={route.path} component={route.component} />
+                <Route
+                  key={idx}
+                  path={route.path}
+                  component={route.component}
+                />
               );
             })}
           </Switch>

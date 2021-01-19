@@ -48,7 +48,8 @@ const TextField = ({
   const showPwdIcon = <FontAwesomeIcon icon={faEye} />;
   const hidePwdIcon = <FontAwesomeIcon icon={faEyeSlash} />;
 
-  const [showPwd, setShowPwd] = useState(false);
+  const [showPwd, setShowPwd] = useState(true);
+  const pwdIcon = showPwd ? showPwdIcon : hidePwdIcon;
 
   const setValue = (e) => {
     onChange(e.target.value);
@@ -61,9 +62,15 @@ const TextField = ({
         onChange={setValue}
         placeholder={placeholder}
         className={classes.inputField}
-        type={isPassword ? 'password' : 'text'}
+        type={isPassword && showPwd ? 'password' : 'text'}
       />
-      {isPassword && <i className={classes.pwdAdornment}>{showPwdIcon}</i>}
+      {isPassword && (
+        <i
+          className={classes.pwdAdornment}
+          onClick={() => setShowPwd(!showPwd)}>
+          {pwdIcon}
+        </i>
+      )}
     </div>
   );
 };
