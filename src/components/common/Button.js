@@ -13,9 +13,9 @@ const styles = (theme) => ({
   },
 });
 
-const Button = ({ label = '', onClick = NOOP, classes }) => {
+const Button = ({ label = '', onClick = NOOP, classes, style = {} }) => {
   return (
-    <button onClick={onClick} className={classes.button}>
+    <button onClick={onClick} className={classes.button} style={style}>
       {label}
     </button>
   );

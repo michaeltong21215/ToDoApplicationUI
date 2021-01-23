@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import SelectClassifications from './components/classification/SelectClassifications';
 import BackgroundImage from './imgs/background.jpg';
 
 const styles = (theme) => ({
@@ -29,6 +30,10 @@ class App extends Component {
       {
         path: '/signup',
         component: Signup,
+      },
+      {
+        path: '/classification',
+        component: SelectClassifications,
       },
     ];
     return routes;

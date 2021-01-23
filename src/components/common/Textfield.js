@@ -44,6 +44,7 @@ const TextField = ({
   placeholder = '',
   classes,
   isPassword,
+  style = {},
 }) => {
   const showPwdIcon = <FontAwesomeIcon icon={faEye} />;
   const hidePwdIcon = <FontAwesomeIcon icon={faEyeSlash} />;
@@ -63,6 +64,7 @@ const TextField = ({
         placeholder={placeholder}
         className={classes.inputField}
         type={isPassword && showPwd ? 'password' : 'text'}
+        style={style}
       />
       {isPassword && (
         <i

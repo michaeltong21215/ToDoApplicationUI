@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppLogo from '../common/AppLogo';
 import Textfield from '../common/Textfield';
@@ -42,7 +42,7 @@ const styles = (theme) => ({
   },
 });
 
-const Signup = ({ classes }) => {
+const Signup = ({ classes, history }) => {
   const [fields, setFields] = useState({
     firstName: '',
     lastName: '',
@@ -104,7 +104,10 @@ const Signup = ({ classes }) => {
             </div>
           ))}
           <div className={classes.register}>
-            <Button label='Register' />
+            <Button
+              label='Register'
+              onClick={() => history.push('/classification')}
+            />
           </div>
           <div className={classes.signIn}>
             Already have an Account? <Link to='/'>Sign in</Link>
@@ -115,4 +118,4 @@ const Signup = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Signup);
+export default withRouter(withStyles(styles)(Signup));
