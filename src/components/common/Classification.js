@@ -5,7 +5,7 @@ const styles = (theme) => ({
   main: {
     width: 320,
     height: 120,
-    backgroundColor: 'white',
+    backgroundColor: (props) => (props.isSelected ? '#2a60e4' : 'white'),
     boxShadow:
       '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     borderRadius: '12px 12px 12px 12px',
@@ -25,6 +25,7 @@ const styles = (theme) => ({
     paddingLeft: 40,
     fontWeight: 'bold',
     fontSize: 24,
+    color: (props) => (props.isSelected ? 'white' : 'black'),
   },
 });
 

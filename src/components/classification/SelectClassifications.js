@@ -60,72 +60,99 @@ const styles = (theme) => ({
   },
 });
 const SelectClassifications = ({ classes, history }) => {
-  const [selected, setSelected] = useState({});
   const classifications = [
     {
       type: 'Art',
       src: Art,
+      selected: false,
     },
     {
       type: 'Dance',
       src: Dance,
+      selected: false,
     },
     {
       type: 'Family',
       src: Family,
+      selected: false,
     },
     {
       type: 'Food',
       src: Food,
+      selected: false,
     },
     {
       type: 'Fun',
       src: Fun,
+      selected: false,
     },
     {
       type: 'Home',
       src: Home,
+      selected: false,
     },
     {
       type: 'IT',
       src: IT,
+      selected: false,
     },
     {
       type: 'Love',
       src: Love,
+      selected: false,
     },
     {
       type: 'Music',
       src: Music,
+      selected: false,
     },
     {
       type: 'Religion',
       src: Religion,
+      selected: false,
     },
     {
       type: 'Sports',
       src: Sports,
+      selected: false,
     },
     {
       type: 'Work',
       src: Work,
+      selected: false,
     },
   ];
+  const [selectClassification, setSelectClassification] = useState(
+    classifications
+  );
+
+  const onClickClassification = (idx) => {
+    const newSelected = selectClassification;
+    newSelected[idx].selected = !newSelected[idx].selected;
+
+    setSelectClassification([...newSelected]);
+  };
+
   const renderForm = () => {
+    const selectedCount = selectClassification.filter(
+      (classification) => classification.selected === true
+    ).length;
+
     return (
       <div className={classes.form}>
         <div className={classes.header}>
           <div>Choose your categories</div>
           <div className={classes.totalSelected}>
-            {`${Object.keys(selected).length}/${classifications.length}`}
+            {`${selectedCount}/${classifications.length}`}
           </div>
         </div>
         <div className={classes.classifications}>
-          {classifications.map((classification, idx) => (
-            <div>
+          {selectClassification.map((classification, idx) => (
+            <div onClick={() => onClickClassification(idx)} key={idx}>
               <Classification
                 text={classification.type}
                 logo={classification.src}
+                isSelected={classification.selected}
               />
             </div>
           ))}
