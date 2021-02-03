@@ -160,7 +160,7 @@ const SelectClassifications = ({ classes, history }) => {
         <div className={classes.register}>
           <Button
             label='Register'
-            onClick={() => history.push('/classification')}
+            onClick={() => history.push('/dashboard')}
             style={{ width: 150 }}
           />
         </div>

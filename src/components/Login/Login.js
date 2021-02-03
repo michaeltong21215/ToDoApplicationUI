@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppLogo from '../common/AppLogo';
 import Textfield from '../common/Textfield';
@@ -50,7 +50,7 @@ const styles = (theme) => ({
   },
 });
 
-const Login = ({ classes }) => {
+const Login = ({ classes, history }) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [willCacheCreds, setWillCacheCreds] = useState(false);
   const setEmail = (text) => setCredentials({ ...credentials, email: text });
@@ -99,7 +99,7 @@ const Login = ({ classes }) => {
             <Button label='Login' />
           </div>
           <div className={classes.signUp}>
-            Don't have an Account? <Link to='/signup'>Sign up</Link>
+            Don't have an Account? <Link to='/signup'>Sign Up</Link>
           </div>
         </div>
       </div>
@@ -107,4 +107,4 @@ const Login = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Login);
+export default withRouter(withStyles(styles)(Login));

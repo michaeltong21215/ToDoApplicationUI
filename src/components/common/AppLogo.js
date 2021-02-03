@@ -1,10 +1,13 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Logo from '../../imgs/Logo.jpg';
+import Logo from '../../imgs/logo_small.png';
 
 const styles = (theme) => ({
   logo: {
-    height: '10vh',
+    width: 200,
+    backgroundColor: 'transparent',
+    position: 'relative',
+    top: '-20px',
   },
 });
 const AppLogo = ({ classes }) => {
