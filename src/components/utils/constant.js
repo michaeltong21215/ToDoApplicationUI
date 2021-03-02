@@ -1,0 +1,5 @@
+export const CHOOSE_BUTTON_COLOR = '#e1e1e1';
+
+export const CHOOSE_BUTTON_TEXT_COLOR = '#808080';
+
+export const CHOOSE_BUTTON_DIV_BORDER_COLOR = '#A9A9A9';
